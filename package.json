@@ -1,0 +1,26 @@
+{
+  "name": "final-project-node-server",
+  "version": "1.0.0",
+  "description": "node.js web server for final project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yufeiz6/final-project-node-server.git"
+  },
+  "keywords": [
+    "node",
+    "rest"
+  ],
+  "author": "yufei zhang, ge xu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yufeiz6/final-project-node-server/issues"
+  },
+  "homepage": "https://github.com/yufeiz6/final-project-node-server#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
