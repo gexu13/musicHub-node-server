@@ -1,3 +1,4 @@
+import usersModel from './users-model.js';
 
 export const findAllUsers = () => {
     return usersModel.find();
