@@ -74,4 +74,5 @@ const AuthController = (app) => {
 
 };
 
+export default AuthController;
 

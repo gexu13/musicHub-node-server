@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import { mongo } from 'mongoose';
+import { mongoose } from 'mongoose';
+import session from "express-session";
+import AuthController from './controllers/auth-controller.js';
 
-mongo.connect('mongodb+srv://web-final:0YPyPauA8yYbcuyW@cluster0.j6ysphf.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://web-final:0YPyPauA8yYbcuyW@cluster0.j6ysphf.mongodb.net/?retryWrites=true&w=majority');
 
 const app = express()
 
@@ -23,6 +25,7 @@ app.use(
 
 app.use(express.json());
 
+AuthController(app);
 
-app.get('/hello', (req, res) => {res.send('Hello World!')})
+// app.get('/hello', (req, res) => {res.send('Hello World!')})
 app.listen(4000)
