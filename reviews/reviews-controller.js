@@ -25,3 +25,10 @@ const updateReview = async (req, res) => {
   const status = await reviewsDao.updateReview(reviewIdToUpdate, updates);
   res.json(status);
 }
+
+export default (app) => {
+  app.post('/api/tuits', createReview);
+  app.get('/api/tuits', findReview);
+  app.put('/api/tuits/:tid', updateReview);
+  app.delete('/api/tuits/:tid', deleteReview);
+ }
