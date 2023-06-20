@@ -5,5 +5,6 @@ const reviewSchema = mongoose.Schema({
   likes: Number,
   liked: Boolean,
   albumId: String,
+  author: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'},
 }, {collection: 'reviews'});
 export default reviewSchema;
