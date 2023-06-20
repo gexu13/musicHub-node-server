@@ -15,13 +15,15 @@ const findReviewByAuthorId = async (req, res) => {
 const findMyReview = async (req, res) => {
   const currentUser = req.session["currentUser"];
   const reviews = await reviewsDao.findReviewByAuthorId(currentUser._id);
-  res.json(reviews);
+  console.log(reviews);
+  console.log("currentUser._id");
+  res.json(reviews); 
 }
 
 const createReview = async (req, res) => {
   const newReview = req.body;
   const currentUser = req.session["currentUser"];
-  newReview.author = currentUser._id;
+  newReview = {...req.body, author: currentUser._id}
   newReview.likes = 0;
   newReview.liked = false;
   newReview.albumId = req.body.albumId; 
@@ -45,8 +47,8 @@ const updateReview = async (req, res) => {
 export default (app) => {
   app.post('/api/reviews', createReview);
   app.get('/api/reviews', findReview);
-  app.get('/api/reviews/:author', findReviewByAuthorId);
+  //app.get('/api/reviews/:author', findReviewByAuthorId);
   app.put('/api/reviews/:rid', updateReview);
   app.delete('/api/reviews/:rid', deleteReview);
-  app.get('/api/my-reviews', findMyReview);
+  app.get('/api/reviews/my-reviews', findMyReview);
  }
