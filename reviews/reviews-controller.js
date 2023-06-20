@@ -10,7 +10,7 @@ const findReviewByAuthorId = async (req, res) => {
   const author = req.params.uid;
   const reviews = await reviewsDao.findReviewByAuthorId(author);
   res.json(reviews);
-}
+} 
 
 const findMyReview = async (req, res) => {
   const currentUser = req.session["currentUser"];
@@ -21,14 +21,14 @@ const findMyReview = async (req, res) => {
 }
 
 const createReview = async (req, res) => {
-  const newReview = req.body;
+  const newReview = req.body; 
   const currentUser = req.session["currentUser"];
-  newReview = {...req.body, author: currentUser._id}
+  newReview.author = currentUser._id;
   newReview.likes = 0;
   newReview.liked = false;
   newReview.albumId = req.body.albumId; 
   const insertedReview = await reviewsDao.createReview(newReview);
-  res.json(insertedReview);
+  res.json(insertedReview); 
 }
 
 const deleteReview = async (req, res) => {
