@@ -1,7 +1,8 @@
 import * as reviewsDao from './reviews-dao.js';
 
 const findReview = async (req, res) => {
-  const reviews = await reviewsDao.findReview();
+  const albumId = req.query.albumId;
+  const reviews = await reviewsDao.findReview(albumId);
   res.json(reviews);
 }
 
@@ -9,6 +10,7 @@ const createReview = async (req, res) => {
   const newReview = req.body;
   newReview.likes = 0;
   newReview.liked = false;
+  newReview.albumId = req.body.albumId; 
   const insertedReview = await reviewsDao.createReview(newReview);
   res.json(insertedReview);
 }
@@ -27,8 +29,8 @@ const updateReview = async (req, res) => {
 }
 
 export default (app) => {
-  app.post('/api/tuits', createReview);
-  app.get('/api/tuits', findReview);
-  app.put('/api/tuits/:tid', updateReview);
-  app.delete('/api/tuits/:tid', deleteReview);
+  app.post('/api/reviews', createReview);
+  app.get('/api/reviews', findReview);
+  app.put('/api/reviews/:rid', updateReview);
+  app.delete('/api/reviews/:rid', deleteReview);
  }

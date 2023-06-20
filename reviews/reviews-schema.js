@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
-const schema = mongoose.Schema({
+
+const reviewSchema = mongoose.Schema({
   review: String,
   likes: Number,
   liked: Boolean,
+  albumId: String,
 }, {collection: 'reviews'});
-export default schema;
+export default reviewSchema;
