@@ -62,16 +62,6 @@ const AuthController = (app) => {
         }
     };
 
-    const findUserById = async (req, res) => {
-        const uid = req.params["uid"];
-        const user = await usersDao.findUserById(uid);
-        if(user) {
-            res.json(user);
-        } else {
-            res.sendStatus(404);
-        }
-    };
-
 
 
     app.post("/api/users/register", register);
@@ -79,7 +69,6 @@ const AuthController = (app) => {
     app.post("/api/users/logout", logout);
     app.post("/api/users/profile", profile);
     app.put("/api/users", update);
-    app.get("/api/users/:uid", findUserById);
 
 
 };

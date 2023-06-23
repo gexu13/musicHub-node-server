@@ -47,7 +47,7 @@ const updateReview = async (req, res) => {
 export default (app) => {
   app.post('/api/reviews', createReview);
   app.get('/api/reviews', findReview);
-  //app.get('/api/reviews/:author', findReviewByAuthorId);
+  app.get('/api/reviews/:uid', findReviewByAuthorId);
   app.put('/api/reviews/:rid', updateReview);
   app.delete('/api/reviews/:rid', deleteReview);
   app.get('/api/reviews/my-reviews', findMyReview);
