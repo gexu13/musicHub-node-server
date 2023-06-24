@@ -7,6 +7,7 @@ const usersSchema = mongoose.Schema({
     lastName: String,
     email: String,
     avatar: String,
+    stageName: String,
     userType: {type: String, enum: ["ADMIN", "USER","ARTIST"], default: "USER"},
 }, {collection: "users"});
 
