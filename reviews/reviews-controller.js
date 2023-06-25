@@ -1,6 +1,10 @@
 import * as reviewsDao from './reviews-dao.js';
 
 const ReviewController = (app) => {
+  const findAll= async (req, res) => {
+    const reviews = await reviewsDao.findAllReview();
+    res.json(reviews);
+  }
 
   const findReview = async (req, res) => {
     const albumId = req.query.albumId;
@@ -15,11 +19,11 @@ const ReviewController = (app) => {
   } 
 
   const findMyReview = async (req, res) => {
-    console.log("findMyReview");
+    //console.log("findMyReview");
     const currentUser = req.session["currentUser"];
     const reviews = await reviewsDao.findReviewByAuthorId(currentUser._id);
-    console.log(reviews);
-    console.log("currentUser._id");
+    //console.log(reviews);
+    //console.log("currentUser._id");
     res.json(reviews); 
   }
 
@@ -53,6 +57,7 @@ const ReviewController = (app) => {
     app.put('/api/reviews/:rid', updateReview);
     app.delete('/api/reviews/:rid', deleteReview);
     app.get('/api/reviews/my-reviews', findMyReview);
+    app.get('/api/reviews/admin/allReviews/all', findAll);
   }
   
  export default ReviewController;

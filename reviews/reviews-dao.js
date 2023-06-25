@@ -1,5 +1,6 @@
 import exp from 'constants';
 import reviewsModel from './reviews-model.js';
+export const findAllReview = () => reviewsModel.find();
 export const findReview = (albumId) => reviewsModel.find({albumId: albumId});
 //export const findReviewByAuthorId = () => reviewsModel.find().populate("author", "username").exec();
 export const findReviewByAuthorId = (author) => reviewsModel.find({author});

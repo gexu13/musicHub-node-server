@@ -9,7 +9,7 @@ const UsersController = (app) => {
             res.json(user);
         } else {
             res.sendStatus(404);
-        }
+        } 
     };
 
 

@@ -1,14 +1,14 @@
 import * as usersDao from "./users-dao.js";
 
 const AuthController = (app) => {
-
+  
     const register = async (req, res) => {
         const username = req.body.username;
         const user = await usersDao.findUserByUsername(username);
         if(user) {
             res.status(403).send("Username already exists");
             return;
-        }
+        } 
         const newUser = await usersDao.createUser(req.body);
         req.session["currentUser"] = newUser;
         res.json(newUser);
@@ -48,7 +48,7 @@ const AuthController = (app) => {
         } else {
             res.sendStatus(403);
         }
-    };
+    };  
 
     const update = async (req, res) => {
         const currentUser = req.session["currentUser"];
