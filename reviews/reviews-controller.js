@@ -54,7 +54,7 @@ const ReviewController = (app) => {
     app.post('/api/reviews', createReview);
     app.get('/api/reviews', findReview);
     app.get('/api/reviews/author/:uid', findReviewByAuthorId);
-    app.put('/api/reviews/:rid', updateReview);
+    app.put('/api/reviews/update/:rid', updateReview);
     app.delete('/api/reviews/:rid', deleteReview);
     app.get('/api/reviews/my-reviews', findMyReview);
     app.get('/api/reviews/admin/allReviews/all', findAll);
