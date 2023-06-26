@@ -90,8 +90,6 @@ export default function AlbumController(app) {
     res.json({message: "success"});
 }
 
-
-
   app.get("/api/albums", findAllAlbums);
   app.get("/api/albums/:id", findAlbumById);
   app.get("/api/albums/albumId/:albumId", findAlbumByAlbumId);
