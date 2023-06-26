@@ -38,6 +38,5 @@ const BookmarksController = (app) => {
     app.get('/api/bookmarks/my-bookmarks', findMyBookmark);
     app.post('/api/bookmarks/user/currentbookmark', findBookmarkByAuthorAndRid);
   }
-
   
  export default BookmarksController;
