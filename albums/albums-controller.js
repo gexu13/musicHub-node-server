@@ -71,7 +71,6 @@ export default function AlbumController(app) {
     const album = await dao.findAlbumByAlbumId(albumId);
     if (album) {
         const likes = await dao.findAlbumLike(userId, album._id);
-        console.log("likes", likes);
         result = likes;
     }
     res.json(result);
