@@ -12,6 +12,8 @@ export const updateAlbum = (id, album) => albumsModel.updateOne({ _id: id }, alb
 export const createLike = (id, userId) =>
   likesModel.create({ album: id, user: userId });
 
+export const findAllAlbumLike = () => likesModel.find().populate("album").exec();
+
 export const deleteLike = (userId, albumId) =>
     likesModel.deleteOne({ user: userId, album: albumId });
 

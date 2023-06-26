@@ -90,6 +90,10 @@ export default function AlbumController(app) {
     res.json({message: "success"});
 }
 
+const findAllAlbumLike = async (req, res) => {
+    const likes = await dao.findAllAlbumLike();
+    res.json(likes);
+}
   app.get("/api/albums", findAllAlbums);
   app.get("/api/albums/:id", findAlbumById);
   app.get("/api/albums/albumId/:albumId", findAlbumByAlbumId);
@@ -99,4 +103,5 @@ export default function AlbumController(app) {
   app.get("/api/albums/user/:userId/likes", findAlbumsLikesByUserId);
   app.post("/api/albums/user/currentlike", findOneAlbumsLikesByUserId);
   app.delete("/api/albums/:albumId/deletelike", deleteLike);
+  app.get("/api/albums/all/likes", findAllAlbumLike);
 }
